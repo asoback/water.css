@@ -50,3 +50,98 @@ tbody tr:nth-child(even) {
 ::selection {
   background-color: var(--selection);
 }
+
+
+/*
+Progress Bar
+*/
+
+progress {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+}
+
+/* Container (background) of the progress bar */
+progress[value] {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background-color: var(--border);
+
+  /* for IE 10+ */
+  color: $progress;
+}
+
+/* IE provides it's own animation which looks nice here */
+progress:not([value]) {
+  background-color:  var(--border);
+  border-radius: 6px;
+}
+
+::-webkit-progress-bar {
+  background-color:  var(--border);
+  border:none;
+  border-radius: 6px; 
+}
+
+/* Progress bar (front) */
+::-webkit-progress-value  {
+  background-color:  var(--progress);
+  border:none;
+  border-radius: 6px; 
+}
+
+::-moz-progress-bar  {
+  background-color:  var(--progress);
+  border:none;
+  border-radius: 6px; 
+}
+
+progress:not([value])::-webkit-progress-bar {
+  background-image:
+     linear-gradient(-60deg, 
+                    transparent 33%, 
+                    rgba(0, 0, 0, .4) 33%, 
+                    rgba(0,0, 0, .4) 66%,
+                    transparent 66%);
+  
+  -webkit-animation: stripes 3s linear infinite;
+  border-radius: 6px; 
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+  background-color:  var(--border);
+}
+
+progress:not([value])::-moz-progress-bar {
+  background-image:
+     linear-gradient(60deg, 
+                    transparent 33%, 
+                    rgba(0, 0, 0, .4) 33%, 
+                    rgba(0,0, 0, .4) 66%,
+                    transparent 66%);
+  
+  -moz-animation: stripes 3s linear infinite;
+  border-radius: 6px; 
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+  
+  background-color:  var(--border);
+}
+
+/* Animations */
+@-webkit-keyframes stripes {
+  from { background-position: 0px 0px; }
+  to { background-position: 100px 0px; }
+}
+
+@-moz-keyframes stripes {
+  from { background-position: 0px 0px; }
+  to { background-position: 100px 0px; }
+}
+
+@keyframes stripes {
+  from { background-position: 0px 0px; }
+  to { background-position: 100px 0px; }
+}
+
+
+
