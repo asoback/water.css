@@ -54,6 +54,7 @@ tbody tr:nth-child(even) {
 
 /*
 Progress Bar
+** the "progress" variable needs to be added to variables-dark.css and variables-light.css
 */
 
 progress {
@@ -70,7 +71,7 @@ progress[value] {
   background-color: var(--border);
 
   /* for IE 10+ */
-  color: $progress;
+  color: var(--progress);
 }
 
 /* IE provides it's own animation which looks nice here */
